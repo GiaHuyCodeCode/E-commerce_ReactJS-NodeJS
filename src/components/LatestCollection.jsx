@@ -5,11 +5,13 @@ import ProductItem from "./ProductItem";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
-  // const { latestProducts, setLatestProducts } = useState([]);
+  const [latestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
-    // setLatestProducts(products.slice(0, 10));
-  }, []);
+    if (products.length > 0) {
+      setLatestProducts(products.slice(0, 10));
+    }
+  }, [products]);
 
   return (
     <div className="my-8 ">
@@ -24,7 +26,7 @@ const LatestCollection = () => {
       </div>
 
       {/*Rendering Product  */}
-      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
         {latestProducts.map((item, index) => (
           <ProductItem
             key={index}
@@ -34,7 +36,7 @@ const LatestCollection = () => {
             price={item.price}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
