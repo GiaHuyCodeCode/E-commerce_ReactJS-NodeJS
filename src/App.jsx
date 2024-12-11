@@ -31,7 +31,6 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />}></Route>
         <Route path="/orders" element={<Orders />}></Route>
       </Routes>
-
       <Footer />
     </div>
   );
