@@ -45,6 +45,18 @@ const ShopContextProvider = (props) => {
 
     // Update the cart items state
     setCartItems(cartData);
+
+    if (token) {
+      try {
+
+        await axios.post(backendUrl + '/api/cart/add', { itemId, size }, { headers: { token } })
+
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+
+      }
+    }
   };
 
   const getCartCount = () => {
@@ -64,6 +76,7 @@ const ShopContextProvider = (props) => {
         } catch (error) {
           // If there is an error (e.g., accessing properties), it will be caught here
           // However, no specific error handling is performed
+          console.log(error);
         }
       }
     }
@@ -89,7 +102,12 @@ const ShopContextProvider = (props) => {
           if (cartItems[items][item] > 0) {
             totalAmount += itemInfo.price * cartItems[items][item];
           }
-        } catch (error) { }
+        } catch (error) {
+          // If there is an error (e.g., accessing properties), it will be caught here
+          // However, no specific error handling is performed
+          console.log(error);
+
+        }
       }
     }
     return totalAmount;
