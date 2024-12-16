@@ -78,7 +78,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory, search, showSearch]);
+  }, [category, subCategory, search, showSearch, products]);
 
   useEffect(() => {
     sortProduct();
@@ -113,9 +113,8 @@ const Collection = () => {
         </p>
         {/* Category Filter */}
         <div
-          className={`border border-gray-300 pl-5 py-3 mt-6 ${
-            showFilter ? " " : "hidden"
-          } sm:block`}
+          className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? " " : "hidden"
+            } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -150,9 +149,8 @@ const Collection = () => {
         </div>
         {/* SubCategories Filter */}
         <div
-          className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? " " : "hidden"
-          } sm:block`}
+          className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? " " : "hidden"
+            } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
